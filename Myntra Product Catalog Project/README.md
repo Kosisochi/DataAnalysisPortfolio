@@ -19,6 +19,8 @@ The goal of this dashboard is for the Myntra Product Catalog manger to keep an e
    
 This will help decide if they want to add more brands or reduce?
 
+[**PBIX PROJECT FILE**](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/Myntra%20Product%20Catalog.pbix)
+
 # Data:
 **Data Source**: The data was download from Kaggle [Click Here To Download](https://www.kaggle.com/datasets/shivamb/fashion-clothing-products-catalog?resource=download)
 
