@@ -1,9 +1,9 @@
-# Data Visualization Project
+# Data Visualization Project: PowerBI
 
-## This project is about building a dashboard in PowerBI.
 
 ## Skills Required
-- PowerBI, DAX
+- PowerBI
+- DAX
 
 #  Project Title: Myntra Product Catalog. 
 Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. The company was founded in 2007 to sell personalized gift items. In May 2014, Myntra.com was acquired by Flipkart.
@@ -11,11 +11,13 @@ It sells clothing itesm from multiple curated brands. It services women, men, gi
 
 # Data:
 **Data Source**: The data was download from Kaggle [Click Here To Download](https://www.kaggle.com/datasets/shivamb/fashion-clothing-products-catalog?resource=download)
+
 **Data Description**: It contains 12491 rows and 8 colums. The colums headers are : Product ID (unique column), Price INR, Gender, Primary Color, ProductName, ProductBrand, NumImages, Decription
 
 **Data Cleaning**: No data cleaning step was required because the data was already in the format required. 
+
 **Data Quality Checks**: Rows are completed, all datatype are corrected. 
-The Primary Color colums has some missing values which was replaced wtih text "Not Specified". A new column "Color" was created.
+The Primary Color column has some missing values which was replaced wtih text "Not Specified". A new column "Color" was created.
 
 ```sql
 Color = 
@@ -44,28 +46,40 @@ SWITCH(
 
 
 **Project Goal**: The goal of this dashboard is for the Myntra Product Catalog manger to keep an eye on thier current current catalog and be able to easilty answer questions such as
-- 1. How many product does Myntra currently have?
-  2. -2. Which gender does their current catalog cater to.
-  3. 3. How many brands do they have stocked.
-     4. Which brand has trhe mopst expensive product?
-     5. Which brand has the highest total sales value? 
+1. How many product does Myntra currently have?
+2. Which gender does their current catalog cater to.
+3. How many brands do they have stocked.
+4. Which brand has trhe mopst expensive product?
+5. Which brand has the highest total sales value?
+   
 This will help decide if they want to add more brands or reduce?
 
 
-# Analysis
+# Dashboard
 
-#### This dashboard is divided into 4 pages
-* Pages 1: Shows the summary page which displays high level overview of the rest of the dashboar. From this page, the user can drill to other analysis and detail pages.
-
-
+### This dashboard is divided into 4 pages
+**Pages 1**: Shows the summary page which displays high level overview of the rest of the dashboar. From this page, the user can drill to other analysis and detail pages.
   ![SummaryPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Summary%20Page.PNG)
 
+**Pages 2**: This is first analysis page. It focuses on the Product Analysis. 
+![ProductAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Color%20Analysis%20Page.PNG)
+
+**Page 3**: This is the second analysis page: It focuses on the Color Analysis.
+![ColorAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Product%20Analysis%20Page.PNG)
+
+**Page 4**: This is the detail page. The user drill through to this page when they need fne grain leve details
+![DetailPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Detail%20Page.PNG)
+
+
+# Measures and Columns
+
 The number of distinct product was caluated by counting each distinct value in the Product ID column.
+**DistinctProduct**
   ```sql
     DistinctProduct = DISTINCTCOUNT(myntra_products_catalog[ProductID])
   ```
 
-To find the brand with the total highest sales value and the value, a few measure were created.
+To find the brand with the total highest sales value and the value, a few measure were created (MostExpensiveBrand and TotalPriceByBrand).
 **MostExpensiveBrand**
 ```sql
 MostExpensiveBrand = 
@@ -93,7 +107,7 @@ SUMX(
 )
 ```
 
-To find the brand with the most expensive proct, a few measures were created
+To find the brand with the most expensive proct, a few measures were created (MaxPricePerBrand and MostExpensiveItemBrandName)
 
 **MaxPricePerBrand**
 ```sql
@@ -102,6 +116,7 @@ CALCULATE(
     MAX('myntra_products_catalog'[Price (INR)]),
     ALLEXCEPT('myntra_products_catalog', 'myntra_products_catalog'[ProductBrand])
 )
+```
 
 **MostExpensiveItemBrandName**
 ```sql
@@ -118,8 +133,8 @@ VAR MostExpensiveBrandTable =
     )
 RETURN
     MAXX(MostExpensiveBrandTable, 'myntra_products_catalog'[ProductBrand])
-
 ```
+
 To create the Most Frequent Brtand By erach Gender Table, these measures where created
 **MostFrequentBrandByGender**
 ```sql
@@ -143,13 +158,11 @@ CALCULATE(
         'myntra_products_catalog'[ProductBrand] = [MostFrequentBrandByGender]
     )
 )
-
 ```
 
 To plot Top 10 brands by prodcut freqency, a new table was created 
 
 ```sql
-
 BrandCounts = 
 SUMMARIZE(
     'myntra_products_catalog',
@@ -158,17 +171,7 @@ SUMMARIZE(
 )
 ```
 
-* Pages 2: This is first analysis page. It focuses on the Product Analysis. 
-![ProductAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Color%20Analysis%20Page.PNG)
+# Findings
 
 
-* Page 3: This is the second analysis page: It focuses on the Color Analysis.
-![ColorAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Product%20Analysis%20Page.PNG)
-
-*Page 4: This is the detail page. The user drill through to this page when they need fne grain leve details
-![DetailPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Detail%20Page.PNG)
-
-
-
-
-*FYI: the analysis on in the project was restricted by what was available in the data. No attempt was made to source for additional external data. 
+**FYI**: The analysis caaried out in the project was restricted by what was available in the data. No attempt was made to source for additional external data. 
