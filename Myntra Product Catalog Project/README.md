@@ -25,7 +25,7 @@ This will help decide if they want to add more brands or reduce?
 #### This dashboard is divided into 4 pages
 * Pages 1: Shows the summary page which displays high level overview of the rest of the dashboar. From this page, the user can drill to other analysis and detail pages.
 
-  !
+  !https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Summary%20Page.PNG
 
 * Pages 2: This is first analysis page. It focuses on the Product ANaysis. 
 
