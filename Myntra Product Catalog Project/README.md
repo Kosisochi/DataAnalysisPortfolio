@@ -151,14 +151,15 @@ SUMMARIZE(
 ```
 
 * Pages 2: This is first analysis page. It focuses on the Product Analysis. 
-![ProductAnalysisPage] https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Color%20Analysis%20Page.PNG
+![ProductAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Color%20Analysis%20Page.PNG)
 
 
 * Page 3: This is the second analysis page: It focuses on the Color Analysis.
-![ColorAnalysisPage]https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Product%20Analysis%20Page.PNG
+![ColorAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Product%20Analysis%20Page.PNG)
 
 *Page 4: This is the detail page. The user drill through to this page when they need fne grain leve details
 ![DetailPage]
+
 
 
 
