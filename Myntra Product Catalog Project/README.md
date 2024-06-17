@@ -9,6 +9,16 @@
 Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. The company was founded in 2007 to sell personalized gift items. In May 2014, Myntra.com was acquired by Flipkart.
 It sells clothing itesm from multiple curated brands. It services women, men, girls, boys and unisex for both adults and kids. 
 
+# Project Goal:
+The goal of this dashboard is for the Myntra Product Catalog manger to keep an eye on thier current current catalog and be able to easilty answer questions such as
+1. How many product does Myntra currently have?
+2. Which gender does their current catalog cater to.
+3. How many brands do they have stocked.
+4. Which brand has trhe mopst expensive product?
+5. Which brand has the highest total sales value?
+   
+This will help decide if they want to add more brands or reduce?
+
 # Data:
 **Data Source**: The data was download from Kaggle [Click Here To Download](https://www.kaggle.com/datasets/shivamb/fashion-clothing-products-catalog?resource=download)
 
@@ -45,16 +55,6 @@ SWITCH(
 ```
 
 
-**Project Goal**: The goal of this dashboard is for the Myntra Product Catalog manger to keep an eye on thier current current catalog and be able to easilty answer questions such as
-1. How many product does Myntra currently have?
-2. Which gender does their current catalog cater to.
-3. How many brands do they have stocked.
-4. Which brand has trhe mopst expensive product?
-5. Which brand has the highest total sales value?
-   
-This will help decide if they want to add more brands or reduce?
-
-
 # Dashboard
 
 ### This dashboard is divided into 4 pages
@@ -74,12 +74,14 @@ This will help decide if they want to add more brands or reduce?
 # Measures and Columns
 
 The number of distinct product was caluated by counting each distinct value in the Product ID column.
+
 **DistinctProduct**
   ```sql
     DistinctProduct = DISTINCTCOUNT(myntra_products_catalog[ProductID])
   ```
 
 To find the brand with the total highest sales value and the value, a few measure were created (MostExpensiveBrand and TotalPriceByBrand).
+
 **MostExpensiveBrand**
 ```sql
 MostExpensiveBrand = 
@@ -98,6 +100,7 @@ TOPN(
 RETURN
     MAXX(MEB_Table, 'myntra_products_catalog'[ProductBrand])
 ```
+
 **TotalPriceByBrand**
 ``` sql
 TotalPriceByBrand = 
@@ -135,7 +138,8 @@ RETURN
     MAXX(MostExpensiveBrandTable, 'myntra_products_catalog'[ProductBrand])
 ```
 
-To create the Most Frequent Brtand By erach Gender Table, these measures where created
+To create the Most Frequent Brtand By erach Gender Table, these measures where created.
+
 **MostFrequentBrandByGender**
 ```sql
 MostFrequentBrandByGender = 
@@ -161,6 +165,8 @@ CALCULATE(
 ```
 
 To plot Top 10 brands by prodcut freqency, a new table was created 
+
+**BrandCounts**
 
 ```sql
 BrandCounts = 
