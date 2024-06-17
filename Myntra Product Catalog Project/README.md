@@ -5,15 +5,18 @@
 ## Skills Required
 - PowerBI, DAX
 
-#  Project Title: Myntra Product Catalog. Myntra is an e-commerce platform originating from India. It sells clothing itesm from multiple curated brands. It services woem, men, girls, boys and usiex for bith adults and kids. 
+#  Project Title: Myntra Product Catalog. 
+Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. The company was founded in 2007 to sell personalized gift items. In May 2014, Myntra.com was acquired by Flipkart.
+It sells clothing itesm from multiple curated brands. It services women, men, girls, boys and unisex for both adults and kids. 
 
 # Data:
-Data Source: The data was download from Kaggle [Add link Here]
-Data Description: it contains .... rows and ... colums. The colums headers are :  ......
+**Data Source**: The data was download from Kaggle [Click Here To Download](https://www.kaggle.com/datasets/shivamb/fashion-clothing-products-catalog?resource=download)
+**Data Description**: It contains 12491 rows and 8 colums. The colums headers are : Product ID (unique column), Price INR, Gender, Primary Color, ProductName, ProductBrand, NumImages, Decription
 
-Data Cleaning: No data cleaning step was required because the data was already in the format required. 
-Data Quality Checks: Rows are completed, all datatype are corrected. 
-The color colums has some missing values which was replaced wtih text "Not Specified". A new column "Color" was created.
+**Data Cleaning**: No data cleaning step was required because the data was already in the format required. 
+**Data Quality Checks**: Rows are completed, all datatype are corrected. 
+The Primary Color colums has some missing values which was replaced wtih text "Not Specified". A new column "Color" was created.
+
 ```sql
 Color = 
 IF(
@@ -26,7 +29,8 @@ IF(
 )
 ```
 
-A new column called Gender Groud was created to group the gender into three groups 
+A new column called Gender Group wascreated to group the gender into  3 major groups 
+
 ```sql
 GenderGroup = 
 SWITCH(
@@ -39,8 +43,12 @@ SWITCH(
 ```
 
 
-Project Goal: The goal of this dashboard is for the Myntra Product Catalog manger to keep an eye on thier current current catalog and be able to easilty answer questions such as 1. How many product does Myntra currently have? 2. Which gender does their current catalog cater to. 3. How many brands do they have stocked. Which brand has trhe mopst expensive product? Which brand has the highest total sales value? 
-
+**Project Goal**: The goal of this dashboard is for the Myntra Product Catalog manger to keep an eye on thier current current catalog and be able to easilty answer questions such as
+- 1. How many product does Myntra currently have?
+  2. -2. Which gender does their current catalog cater to.
+  3. 3. How many brands do they have stocked.
+     4. Which brand has trhe mopst expensive product?
+     5. Which brand has the highest total sales value? 
 This will help decide if they want to add more brands or reduce?
 
 
@@ -158,9 +166,9 @@ SUMMARIZE(
 ![ColorAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Product%20Analysis%20Page.PNG)
 
 *Page 4: This is the detail page. The user drill through to this page when they need fne grain leve details
-![DetailPage]
+![DetailPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Detail%20Page.PNG)
 
 
 
 
-*FYI: the anlysis on in the project was restricted by what was available in the data. No attempt was made to source for additional external data. 
+*FYI: the analysis on in the project was restricted by what was available in the data. No attempt was made to source for additional external data. 
