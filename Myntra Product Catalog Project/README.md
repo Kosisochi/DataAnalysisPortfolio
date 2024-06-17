@@ -29,7 +29,7 @@ This will help decide if they want to add more brands or reduce?
   ![SummaryPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Summary%20Page.PNG)
 
 
-  ```dax
+  ```sql
     DistinctProduct = DISTINCTCOUNT(myntra_products_catalog[ProductID])
   ```
 
