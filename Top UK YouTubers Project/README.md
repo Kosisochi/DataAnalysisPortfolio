@@ -68,7 +68,7 @@ The data is sourced from Kaggle (an Excel extract), [see here to find it.](https
 
 - Design
 - Developement
-- Testing
+- Data Quality Checks/Testing
 - Analysis 
  
 
