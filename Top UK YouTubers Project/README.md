@@ -6,7 +6,8 @@
 - [Data Source](#data-source)
 - [Stages](#stages)
 - [Design](#design)
-  - [Mockup](#mockup)
+  - [Dashboard components required](#Dashboard-components-required)
+  - [Dashboard Prototype](#dashboard-prototype)
   - [Tools](#tools)
 - [Development](#development)
   - [Pseudocode](#pseudocode)
@@ -14,8 +15,7 @@
   - [Data Cleaning](#data-cleaning)
   - [Transform the Data](#transform-the-data)
   - [Create the SQL View](#create-the-sql-view)
-- [Testing](#testing)
-  - [Data Quality Tests](#data-quality-tests)
+- [Data Quality Checks](#data-quality-checks)
 - [Visualization](#visualization)
   - [Results](#results)
   - [DAX Measures](#dax-measures)
@@ -27,7 +27,6 @@
   - [Potential ROI](#potential-roi)
   - [Potential Courses of Actions](#potential-courses-of-actions)
 - [Conclusion](#conclusion)
-
 
 
 
@@ -56,16 +55,12 @@ With this information, I can make more informed decisions about which Youtubers 
 
 # Data source 
 
-- What data is needed to achieve our objective?
-
 We need data on the top UK YouTubers in 2024 that includes their 
 - channel names
 - total subscribers
 - total views
 - total videos uploaded
 
-
-- Where is the data coming from? 
 The data is sourced from Kaggle (an Excel extract), [see here to find it.](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
 
 
@@ -80,7 +75,6 @@ The data is sourced from Kaggle (an Excel extract), [see here to find it.](https
 # Design 
 
 ## Dashboard components required 
-- What should the dashboard contain based on the requirements provided?
 
 To understand what it should contain, we need to figure out what questions we need the dashboard to answer:
 
@@ -179,9 +173,7 @@ And here is a tabular representation of the expected schema for the clean data:
 3. Rename columns using aliases
 
 
-
-### Transform the data 
-
+## Transform the data 
 
 
 ```sql
@@ -202,7 +194,7 @@ FROM
 ```
 
 
-### Create the SQL view 
+## Create the SQL view 
 
 ```sql
 /*
@@ -239,7 +231,6 @@ FROM dbo.VIEW_TopUkYoutubers2024
 ```
 
 ![Row count check](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/row%20count%20check.PNG)
-
 
 
 ## Column count check
