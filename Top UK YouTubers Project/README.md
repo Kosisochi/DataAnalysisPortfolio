@@ -32,13 +32,10 @@
 
 
 # Objective 
-
-- What is the key pain point? 
-
-The Head of Marketing wants to find out who the top YouTubers are in 2024 to decide on which YouTubers would be best to run marketing campaigns throughout the rest of the year.
+The Head of Social Media wants to find out who the top UK YouTubers are in 2024 to decide on which YouTubers would be best to run marketing campaigns throughout the rest of the year.
 
 
-- What is the ideal solution? 
+## Proposed Solution
 
 To create a dashboard that provides insights into the top UK YouTubers in 2024 that includes their 
 - subscriber count
@@ -50,7 +47,7 @@ This will help the marketing team make informed decisions about which YouTubers 
 
 ## User story 
 
-As the Head of Marketing, I want to use a dashboard that analyses YouTube channel data in the UK . 
+As the Head of Social Media, I want to use a dashboard that analyses YouTube channel data in the UK . 
 
 This dashboard should allow me to identify the top performing channels based on metrics like subscriber base and average views. 
 
@@ -68,7 +65,6 @@ We need data on the top UK YouTubers in 2024 that includes their
 - total videos uploaded
 
 
-
 - Where is the data coming from? 
 The data is sourced from Kaggle (an Excel extract), [see here to find it.](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
 
@@ -80,7 +76,6 @@ The data is sourced from Kaggle (an Excel extract), [see here to find it.](https
 - Testing
 - Analysis 
  
-
 
 # Design 
 
@@ -99,7 +94,7 @@ To understand what it should contain, we need to figure out what questions we ne
 For now, these are some of the questions we need to answer, this may change as we progress down our analysis. 
 
 
-## Dashboard mockup
+## Dashboard Prototype
 
 - What should it look like? 
 
@@ -111,9 +106,7 @@ Some of the data visuals that may be appropriate in answering our questions incl
 4. Horizontal bar chart 
 
 
-
-
-![Dashboard-Mockup](assets/images/dashboard_mockup.png)
+![Dashboard-Prototype](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/Dashboard%20Low%20Level%20Prototype.png)
 
 
 ## Tools 
@@ -121,11 +114,10 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 | Tool | Purpose |
 | --- | --- |
-| Excel | Exploring the data |
-| SQL Server | Cleaning, testing, and analyzing the data |
-| Power BI | Visualizing the data via interactive dashboards |
-| GitHub | Hosting the project documentation and version control |
-| Mokkup AI | Designing the wireframe/mockup of the dashboard | 
+| Excel | For exploring the data |
+| SQL Server | For cleaning, testing, and analyzing the data |
+| Power BI | For visualizing the data via interactive dashboards |
+| GitHub | For hosting, sharing the project documentation and  for version control |
 
 
 # Development
@@ -138,18 +130,13 @@ Some of the data visuals that may be appropriate in answering our questions incl
 2. Explore the data in Excel
 3. Load the data into SQL Server
 4. Clean the data with SQL
-5. Test the data with SQL
+5. Conduct Data Quality Checks with SQL
 6. Visualize the data in Power BI
 7. Generate the findings based on the insights
 8. Write the documentation + commentary
-9. Publish the data to GitHub Pages
+9. Publish the data to a github repo
 
 ## Data exploration notes
-
-This is the stage where you have a scan of what's in the data, errors, inconcsistencies, bugs, weird and corrupted characters etc  
-
-
-- What are your initial observations with this dataset? What's caught your attention so far? 
 
 1. There are at least 4 columns that contain the data we need for this analysis, which signals we have everything we need from the file without needing to contact the client for any more data. 
 2. The first column contains the channel ID with what appears to be channel IDS, which are separated by a @ symbol - we need to extract the channel names from this.
@@ -158,10 +145,7 @@ This is the stage where you have a scan of what's in the data, errors, inconcsis
 
 
 
-
-
 ## Data cleaning 
-- What do we expect the clean data to look like? (What should it contain? What contraints should we apply to it?)
 
 The aim is to refine our dataset to ensure it is structured and ready for analysis. 
 
@@ -188,16 +172,11 @@ And here is a tabular representation of the expected schema for the clean data:
 | total_videos | INTEGER | NO |
 
 
-
 - What steps are needed to clean and shape the data into the desired format?
 
 1. Remove unnecessary columns by only selecting the ones you need
 2. Extract Youtube channel names from the first column
 3. Rename columns using aliases
-
-
-
-
 
 
 
@@ -232,26 +211,18 @@ FROM
 # 3. Select the required columns from the top_uk_youtubers_2024 SQL table 
 */
 
--- 1.
-CREATE VIEW view_uk_youtubers_2024 AS
-
--- 2.
-SELECT
-    CAST(SUBSTRING(NOMBRE, 1, CHARINDEX('@', NOMBRE) -1) AS VARCHAR(100)) AS channel_name, -- 2. 
-    total_subscribers,
-    total_views,
-    total_videos
-
--- 3.
-FROM
-    top_uk_youtubers_2024
+CREATE VIEW VIEW_TopUkYoutubers2024 AS
+SELECT 
+	CAST(SUBSTRING(NOMBRE, 1 , CHARINDEX('@', NOMBRE) -1)  AS VARCHAR(100)) AS channel_name,
+	total_subscribers,
+	total_videos, 
+	total_views
+FROM dbo.TopUkYoutubers2024
 
 ```
 
 
-# Testing 
-
-- What data quality and validation checks are you going to create?
+# Data Quality Checks
 
 Here are the data quality tests conducted:
 
@@ -261,10 +232,9 @@ Here are the data quality tests conducted:
 # Count the total number of records (or rows) are in the SQL view
 */
 
-SELECT
-    COUNT(*) AS no_of_rows
-FROM
-    view_uk_youtubers_2024;
+--ROW COUNT CHECK - passed
+SELECT Count(*) as num_of_rows
+FROM dbo.VIEW_TopUkYoutubers2024
 
 ```
 
@@ -279,13 +249,10 @@ FROM
 # Count the total number of columns (or fields) are in the SQL view
 */
 
-
-SELECT
-    COUNT(*) AS column_count
-FROM
-    INFORMATION_SCHEMA.COLUMNS
-WHERE
-    TABLE_NAME = 'view_uk_youtubers_2024'
+--COLUMN COUNT CHECK - passed
+SELECT Count(*) AS colum_count
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'VIEW_TopUkYoutubers2024'
 ```
 ### Output 
 ![Column count check](assets/images/2_column_count_check.png)
@@ -299,20 +266,16 @@ WHERE
 # Check the data types of each column from the view by checking the INFORMATION SCHEMA view
 */
 
--- 1.
-SELECT
-    COLUMN_NAME,
-    DATA_TYPE
-FROM
-    INFORMATION_SCHEMA.COLUMNS
-WHERE
-    TABLE_NAME = 'view_uk_youtubers_2024';
+-- DATA TYPE CHECK - passed
+SELECT column_name, data_type
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'VIEW_TopUkYoutubers2024'
 ```
 ### Output
 ![Data type check](assets/images/3_data_type_check.png)
 
 
-## Duplicate count check
+## Duplicity check
 ### SQL query 
 ```sql
 /*
@@ -321,20 +284,14 @@ WHERE
 # 3. Filter for groups with more than one row
 */
 
--- 1.
+-- DUPLICITY CHECK -- passed
 SELECT
-    channel_name,
-    COUNT(*) AS duplicate_count
-FROM
-    view_uk_youtubers_2024
+	channel_name, 
+	Count(*) as duplicate_count
+ FROM VIEW_TopUkYoutubers2024
+ GROUP BY channel_name
+ HAVING Count(*) > 1
 
--- 2.
-GROUP BY
-    channel_name
-
--- 3.
-HAVING
-    COUNT(*) > 1;
 ```
 ### Output
 ![Duplicate count check](assets/images/4_duplicate_records_check.png)
