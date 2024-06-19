@@ -238,7 +238,7 @@ FROM dbo.VIEW_TopUkYoutubers2024
 
 ```
 
-![Row count check](assets/images/1_row_count_check.png)
+![Row count check](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/row%20count%20check.PNG)
 
 
 
@@ -255,7 +255,7 @@ FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'VIEW_TopUkYoutubers2024'
 ```
 ### Output 
-![Column count check](assets/images/2_column_count_check.png)
+![Column count check](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/colum%20count%20check.PNG)
 
 
 
@@ -272,7 +272,7 @@ FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'VIEW_TopUkYoutubers2024'
 ```
 ### Output
-![Data type check](assets/images/3_data_type_check.png)
+![Data type check](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/data%20type%20check.PNG)
 
 
 ## Duplicity check
@@ -294,16 +294,14 @@ SELECT
 
 ```
 ### Output
-![Duplicate count check](assets/images/4_duplicate_records_check.png)
+![Duplicity check](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/duplicity%20check.PNG)
 
 # Visualization 
 
 
 ## Results
 
-- What does the dashboard look like?
-
-![GIF of Power BI Dashboard](assets/images/top_uk_youtubers_2024.gif)
+![Screenshot of Power BI Dashboard](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/Dashboard%20ScreenShot.PNG)
 
 This shows the Top UK Youtubers in 2024 so far. 
 
@@ -566,7 +564,7 @@ ORDER BY
 
 #### Output
 
-![Most subsc](assets/images/youtubers_with_the_most_subs.png)
+![Most subsc](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/Total%20Subscribers%20Analysis.PNG)
 
 ### 2. Youtubers with the most videos uploaded
 
@@ -574,13 +572,13 @@ ORDER BY
 
 Campaign idea = sponsored video series  
 
-1. GRM Daily
+1. **GRM Daily**
 - Average views per video = 510,000
 - Product cost = $5
 - Potential units sold per video = 510,000 x 2% conversion rate = 10,200 units sold
 - Potential revenue per video = 10,200 x $5= $51,000
-- Campaign cost (11-videos @ $5,000 each) = $55,000
-- **Net profit = $51,000 - $55,000 = -$4,000 (potential loss)**
+- Campaign cost (10-videos @ $5,000 each) = $50,000
+- **Net profit = $51,000 - $50,000 = $1,000 (profit)**
 
 b. **Manchester City**
 
@@ -588,8 +586,8 @@ b. **Manchester City**
 - Product cost = $5
 - Potential units sold per video = 240,000 x 2% conversion rate = 4,800 units sold
 - Potential revenue per video = 4,800 x $5= $24,000
-- Campaign cost (11-videos @ $5,000 each) = $55,000
-- **Net profit = $24,000 - $55,000 = -$31,000 (potential loss)**
+- Campaign cost (10-videos @ $5,000 each) = $50,000
+- **Net profit = $24,000 - $50,000 = -$26,000 (potential loss)**
 
 b. **Yogscast**
 
@@ -597,8 +595,8 @@ b. **Yogscast**
 - Product cost = $5
 - Potential units sold per video = 710,000 x 2% conversion rate = 14,200 units sold
 - Potential revenue per video = 14,200 x $5= $71,000
-- Campaign cost (11-videos @ $5,000 each) = $55,000
-- **Net profit = $71,000 - $55,000 = $16,000 (profit)**
+- Campaign cost (10-videos @ $5,000 each) = $50,000
+- **Net profit = $71,000 - $50,000 = $21,000 (profit)**
 
 
 Best option from category: Yogscast
@@ -656,7 +654,7 @@ ORDER BY
 
 #### Output
 
-![Most videos](assets/images/youtubers_with_the_most_videos.png)
+![Most videos](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/Total%20Videos%20Analysis.PNG)
 
 
 ### 3.  Youtubers with the most views 
@@ -751,7 +749,7 @@ ORDER BY
 
 #### Output
 
-![Most views](assets/images/youtubers_with_the_most_views.png)
+![Most views](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Top%20UK%20YouTubers%20Project/assets/Total%20Views%20Analysis.PNG)
 
 
 
