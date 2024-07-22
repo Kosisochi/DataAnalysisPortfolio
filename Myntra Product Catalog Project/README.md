@@ -7,28 +7,28 @@
 
 #  Project Title: Myntra Product Catalog. 
 Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India. The company was founded in 2007 to sell personalized gift items. In May 2014, Myntra.com was acquired by Flipkart.
-It sells clothing itesm from multiple curated brands. It services women, men, girls, boys and unisex for both adults and kids. 
+It sells clothing items from multiple curated brands. It services women, men, girls, boys and unisex for both adults and kids. 
 
 # Project Goal:
-The goal of this dashboard is for the Myntra Product Catalog manger to keep an eye on thier current current catalog and be able to easilty answer questions such as
+The goal of this dashboard is for the Myntra Product Catalog Manger to monitor thier current current catalog and easily answer questions such as
 1. How many product does Myntra currently have?
-2. Which gender does their current catalog cater to.
-3. How many brands do they have stocked.
-4. Which brand has trhe mopst expensive product?
+2. Which gender does their current catalog cater to?
+3. How many brands do they have stocked?
+4. Which brand has the most expensive product?
 5. Which brand has the highest total sales value?
    
-This will help decide if they want to add more brands or reduce?
+This will help in making multiple decisions. 
 
 
 # Data:
-**Data Source**: The data was download from Kaggle [Click Here To Download](https://www.kaggle.com/datasets/shivamb/fashion-clothing-products-catalog?resource=download)
+**Data Source**: The data was downloaded from Kaggle [Click Here To Download](https://www.kaggle.com/datasets/shivamb/fashion-clothing-products-catalog?resource=download)
 
-**Data Description**: It contains 12491 rows and 8 colums. The colums headers are : Product ID (unique column), Price INR, Gender, Primary Color, ProductName, ProductBrand, NumImages, Decription
+**Data Description**: It contains 12491 rows and 8 colums. The column headers are : Product ID (unique column), Price INR, Gender, Primary Color, ProductName, ProductBrand, NumImages, Decription
 
-**Data Cleaning**: No data cleaning step was required because the data was already in the format required. 
+**Data Cleaning**: No data cleaning steps were required because the data was already in a clean format. 
 
 **Data Quality Checks**: Rows are completed, all datatype are corrected. 
-The Primary Color column has some missing values which was replaced wtih text "Not Specified". A new column "Color" was created.
+The Primary Color column has some missing values which was replaced wtih text "Not Specified". A new column "Color" was created rather than replacing the Primary Color column.
 
 ```sql
 Color = 
@@ -42,7 +42,7 @@ IF(
 )
 ```
 
-A new column called Gender Group wascreated to group the gender into  3 major groups 
+A new column called Gender Group was created to group the gender into  3 major groups: Male, Female & Unisex
 
 ```sql
 GenderGroup = 
@@ -76,14 +76,14 @@ SWITCH(
 
 # Measures and Columns
 
-The number of distinct product was caluated by counting each distinct value in the Product ID column.
+The number of distinct products was caluated by counting each distinct value in the Product ID column.
 
 **DistinctProduct**
   ```sql
     DistinctProduct = DISTINCTCOUNT(myntra_products_catalog[ProductID])
   ```
 
-To find the brand with the total highest sales value and the value, a few measure were created (MostExpensiveBrand and TotalPriceByBrand).
+To find the brand with the total highest sales value and the corresponding value, a few measure were created (MostExpensiveBrand and TotalPriceByBrand).
 
 **MostExpensiveBrand**
 ```sql
@@ -113,7 +113,7 @@ SUMX(
 )
 ```
 
-To find the brand with the most expensive proct, a few measures were created (MaxPricePerBrand and MostExpensiveItemBrandName)
+To find the brand with the most expensive product, a few measures were created (MaxPricePerBrand and MostExpensiveItemBrandName)
 
 **MaxPricePerBrand**
 ```sql
@@ -141,7 +141,7 @@ RETURN
     MAXX(MostExpensiveBrandTable, 'myntra_products_catalog'[ProductBrand])
 ```
 
-To create the Most Frequent Brtand By erach Gender Table, these measures where created.
+To create the Most Frequent Brand By each Gender Table, these measures where created.
 
 **MostFrequentBrandByGender**
 ```sql
@@ -167,7 +167,7 @@ CALCULATE(
 )
 ```
 
-To plot Top 10 brands by prodcut freqency, a new table was created 
+To plot Top 10 brands by product freqency, a new table was created 
 
 **BrandCounts**
 
