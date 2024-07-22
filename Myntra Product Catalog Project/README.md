@@ -10,7 +10,7 @@ Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, 
 It sells clothing items from multiple curated brands. It services women, men, girls, boys and unisex for both adults and kids. 
 
 # Project Goal:
-The goal of this dashboard is for the Myntra Product Catalog Manger to monitor thier current current catalog and easily answer questions such as
+The goal of this dashboard is for the Myntra Product Catalog Manager to monitor their current current catalog and easily answer questions such as
 1. How many product does Myntra currently have?
 2. Which gender does their current catalog cater to?
 3. How many brands do they have stocked?
