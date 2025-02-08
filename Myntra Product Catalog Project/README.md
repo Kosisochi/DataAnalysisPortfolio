@@ -62,7 +62,8 @@ SWITCH(
 
 ### This dashboard is divided into 4 pages
 **Pages 1**: Shows the overview page which displays high level overview of the rest of the dashboard. From this page, the user can drill to other analysis and detail pages.
-  ![SummaryPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Summary%20Page.PNG)
+  ![OverviewPage]
+  (https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Overview%20Page.PNG)
 
 **Pages 2**: This is first analysis page. It focuses on the Product Analysis. 
 ![ProductAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Color%20Analysis%20Page.PNG)
