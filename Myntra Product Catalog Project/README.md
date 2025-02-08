@@ -58,8 +58,7 @@ SWITCH(
 
 # Dashboard
 
-[**PBIX PROJECT FILE**]
-(https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/Myntra%20Product%20Catalog.pbix)
+[**PBIX PROJECT FILE**](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/Myntra%20Product%20Catalog.pbix)
 
 
 ### This dashboard is divided into 4 pages
