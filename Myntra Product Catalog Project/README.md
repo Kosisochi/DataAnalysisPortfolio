@@ -58,14 +58,16 @@ SWITCH(
 
 # Dashboard
 
-[**PBIX PROJECT FILE**](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/Myntra%20Product%20Catalog.pbix)
+[**PBIX PROJECT FILE**]
+(https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/Myntra%20Product%20Catalog.pbix)
+
 
 ### This dashboard is divided into 4 pages
 **Pages 1**: Shows the overview page which displays high level overview of the rest of the dashboard. From this page, the user can drill to other analysis and detail pages.
   ![OverviewPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Overview%20Page.PNG)
 
 **Pages 2**: This is first analysis page. It focuses on the Product Analysis. 
-![ProductAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Product%20Analysis%20Page.PNG
+![ProductAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Product%20Analysis%20Page.PNG)
 
 **Page 3**: This is the second analysis page: It focuses on the Color Analysis.
 ![ColorAnalysisPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Color%20Analysis%20Page.PNG)
