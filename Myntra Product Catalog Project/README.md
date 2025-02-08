@@ -17,7 +17,7 @@ The goal of this dashboard is for the Myntra Product Catalog Manager to monitor 
 4. Which brand has the most expensive product?
 5. Which brand has the highest total sales value?
    
-This will help in making multiple decisions. 
+This will help the  merchandizing manager or the floor maanger to make decisions about inventory management. . 
 
 
 # Data:
@@ -61,7 +61,7 @@ SWITCH(
 [**PBIX PROJECT FILE**](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/Myntra%20Product%20Catalog.pbix)
 
 ### This dashboard is divided into 4 pages
-**Pages 1**: Shows the summary page which displays high level overview of the rest of the dashboard. From this page, the user can drill to other analysis and detail pages.
+**Pages 1**: Shows the overview page which displays high level overview of the rest of the dashboard. From this page, the user can drill to other analysis and detail pages.
   ![SummaryPage](https://github.com/Kosisochi/DataAnalysisPortfolio/blob/main/Myntra%20Product%20Catalog%20Project/images/Summary%20Page.PNG)
 
 **Pages 2**: This is first analysis page. It focuses on the Product Analysis. 
@@ -75,6 +75,48 @@ SWITCH(
 
 
 # Measures and Columns
+To add more data to enable a robust anlysis, i created a few new columns. 
+
+**Product Addition Date**
+This column specifies the date a prodcut was added to the catalog. 
+```sql
+Product Addition Date = 
+VAR MinDate = DATE(2020, 1, 1)  -- Set your minimum date
+VAR MaxDate = DATE(2025, 12, 31) -- Set your maximum date
+VAR RandomDays = INT(RAND() * (MaxDate - MinDate) + 1)
+RETURN
+    MinDate + RandomDays
+```
+
+**Units Sold**
+This column specifies the number of units for each product sold. 
+```sql
+Units Sold = 
+VAR MinVal = 200  -- Set your minimum 
+VAR MaxVal = 750 -- Set your maximum 
+VAR RandomVal = INT(RAND() * (MaxVal - MinVal) + 1)
+RETURN
+    MinVal + RandomVal
+```
+
+**Units Returned**
+This column specifies the numbver of units returned for each product. 
+```sql 
+Units Returned = 
+VAR RandomNumber = 0.1 + (RAND() * (0.4 - 0.1))
+RETURN
+    myntra_products_catalog[Units Sold] * RandomNumber
+```
+
+**Return Rate**
+```sql 
+Return Rate = myntra_products_catalog[Units Returned] / myntra_products_catalog[Units Sold] 
+```
+
+**Revenue**
+```sql
+Revenue = myntra_products_catalog[Price (INR)] * myntra_products_catalog[Units Sold]
+```
 
 The number of distinct products was calculated by counting each distinct value in the Product ID column.
 
@@ -167,6 +209,25 @@ CALCULATE(
 )
 ```
 
+**Highest Revenue Brand**
+```sql
+MostRevenueBrand = 
+VAR MRB_Table = 
+TOPN(
+    1, 
+    SUMMARIZE(
+        myntra_products_catalog, 
+        myntra_products_catalog[ProductBrand], 
+        "TotalRevenue", 
+        SUM(myntra_products_catalog[Revenue])
+    ), 
+    [TotalRevenueByBrand], 
+    DESC
+)
+RETURN
+    MAXX(MRB_Table, 'myntra_products_catalog'[ProductBrand])
+```
+
 To plot Top 10 brands by product frequency, a new table was created 
 
 **BrandCounts**
@@ -180,7 +241,15 @@ SUMMARIZE(
 )
 ```
 
-# Findings
+# Findings and Recommendations
+1. Indian Terrain is most expensive brand and also generates the highest revenue for Myntra.
+2. Garmin is the brand that has the most exspensive item but it doesn't generate the highest revenue most likely because the product does not sell very frequently.
+3. Myntra has more products catering to women than any other gender or age group.
+4. Products with Blue as its main color were more dominant in the product catalog reagrdless of the gender and age group.
+5. Also, products with blue as its main color has the highest return rate. This could be because most of the producst are blue rather than that customers do not like purchasing blue clothing.
+6. The number of products in Myntras catalog maintained a steady growth but saw a plummet in 2022 and 2025.
+7. Out of over 12k product, only 894 did not have their dominant color specified. These could be floral or heavily patterned clothing without any outstanding main color. 
 
+**FYI**
+Columns like Revenue, Product Addition Date, Units Sold and Units Returned are randomized and will have a new value each time the dahboard refreshed. This should account for an discrepancies between the dashboard and any analysis in this readme page. 
 
-**FYI**: The analysis caaried out in the project was restricted by what was available in the data. No attempt was made to source for additional external data. 
