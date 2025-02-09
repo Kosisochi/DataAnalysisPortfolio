@@ -1,1 +1,5 @@
+This is a small section of the code written for the paper [What Emotion Is Hate? Incorporating Emotion Information into the Hate Speech Detection Task](https://link.springer.com/chapter/10.1007/978-3-030-89363-7_21)
 
+
+**Abstract**
+Finding ethical, platform-independent, computationally efficient methods of adding contextual information to the hate speech detection task is difficult. Methods that rely only on the text for successful classification are of extreme importance. Emotion information extracted from text has been shown to be effective for sentiment analysis and thus we hypothesize that it could have a potential for hate speech. In this study, we propose several methods of introducing emotions into the task of hate speech detection. Using an emotion lexicon, we counter-fitted pre-trained word embeddings (Word2Vec, GloVe, FastText) and also generated a binary and a weighted emotional embedding vector. These were used as features for classification on four publicly available hate speech datasets. Our results and analysis demonstrate that the inclusion of emotion information especially anger, sadness, disgust, fear are helpful for hate speech detection.
